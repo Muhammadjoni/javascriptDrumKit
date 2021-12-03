@@ -9,7 +9,7 @@ A cool Drum Kit built with simple CSS and Vanilla JS to play drum....
 Built a basic JavaScript Clock using Vanilla.
 Beautified it with CSS
 
-#2 CSS variables 
+#3 CSS variables 
 
 Built a builtifull landing page with a customizable picture wich runs on css-variables and js
 
