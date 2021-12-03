@@ -13,3 +13,6 @@ Beautified it with CSS
 
 Built a builtifull landing page with a customizable picture wich runs on css-variables and js
 
+#4 Array Cardio Day-1
+
+Practiced all the filter/map/sort methods within the functions of JS
