@@ -38,13 +38,38 @@ body {
   /* account for the height of the clock hands */
 }
 
-.hand {
+.m-hand {
   width: 50%;
   height: 5px;
   background: rgb(94, 131, 136);
   position: absolute;
   top: 50%;
   transform-origin: 100%;
+  transform: rotate(90deg);
+  transition: all .05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.s-hand {
+  width: 50%;
+  height: 5px;
+  background: rgb(94, 131, 136);
+  position: absolute;
+  top: 50%;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition: all .05s;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+}
+
+.h-hand {
+  width: 40%;
+  height: 5px;
+  background: rgb(94, 131, 136);
+  position: absolute;
+  top: 50%;
+  left: 2%;
+  transform-origin: 110%;
   transform: rotate(90deg);
   transition: all .05s;
   transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);

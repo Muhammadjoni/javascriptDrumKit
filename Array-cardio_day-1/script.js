@@ -26,74 +26,62 @@ const people = [
   'Billings, Josh', 'Birrell, Augustine', 'Blair, Tony', 'Beecher, Henry', 'Biondo, Frank'
 ];
 
-// Array.prototype.filter()
-// 1. Filter the list of inventors for those who were born in the 1500's
-const fifties = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600))
+// // Array.prototype.filter()
+// // 1. Filter the list of inventors for those who were born in the 1500's
+const fifties = inventors.filter( inventor => inventor.year >= 1500 && inventor.year < 1600 );
 
-// console.table(fifties);
-// Array.prototype.map()
-// 2. Give us an array of the inventors first and last names
-const firstNames = inventors.map(inventor => (inventor.first));
-const lastNames = inventors.map(inventor => (inventor.last));
-const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+console.table(fifties);
+// // Array.prototype.map()
+// // 2. Give us an array of the inventors first and last names
+const fullName = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
 
-// console.log(firstNames, lastNames); //runs separately
-// console.log(fullNames); // runs together
+console.table(fullName);
+// // Array.prototype.sort()
+// // 3. Sort the inventors by birthdate, oldest to youngest
+const byBirthday = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
 
-// Array.prototype.sort()
-// 3. Sort the inventors by birthdate, oldest to youngest
-const birthdays =  inventors.sort((a, b) => {
-  if(a.year > b.year) {
-    return 1;
-  } else {
-    return -1;
-  }
-});
-// console.table(birthdays);
-
-const birthdayOrdered = inventors.sort((a,b) => a.year > b.year ? 1 : -1);
-
-// console.table(birthdayOrdered);
-
-// Array.prototype.reduce()
-// 4. How many years did all the inventors live all together?
-const alltogether = inventors.reduce((total, inventor) => {
-  return total + (inventor.passed - inventor.year);
+console.table(byBirthday);
+// // Array.prototype.reduce()
+// // 4. How many years did all the inventors live all together?
+const liveTogether = inventors.reduce((sum, inventor) => {
+  return sum + (inventor.passed - inventor.year);
 }, 0);
 
-// console.log(alltogether); it runs ;
-// 5. Sort the inventors by years lived
-// const yearsLived = inventors.map(inventor => (inventor.passed - inventor.year));
-// const ordered = yearsLived.sort((a,b) => a > b ? 1 : -1);
-
-// console.table(ordered);
-
-const ordered = inventors.sort((a, b) => {
-  const lastOne = a.passed - a.year;
-  const nextOne = b.passed - b.year;
-  return lastOne > nextOne ? 1 : -1;
+console.log(liveTogether);
+// // 5. Sort the inventors by years lived
+const yearsLived = inventors.sort((a, b) => {
+  const lastOf = (a.passed - a.year);
+  const nextOf = (b.passed - b.year);
+  return lastOf > nextOf ? 1 : -1
 });
 
-// console.table(ordered); //it runs;
-// 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
-// https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+console.table(yearsLived)
+// // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+// // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+// const category = document.querySelector('.mw-category');
+// const as = Array.from(category.querySelectorAll('a'));
+// const nameList = as.map(a => a.textContent);
+// const deList = nameList.filter(de => de.includes("de"));
 
-// const category = urlObject.querySelector('.mw-category');
-// const linkings = Array.from(category.querySelectorAll('a'));
-// const deList = linkings.map(a => a.textContent);
-// const de = deList.filter(word => word.includes('de'));
-
-// console.log(de); // it runs;
-// 7. sort Exercise
-// Sort the people alphabetically by last name
-const alphabetically = people.sort((lastName, nextName) => {
-  const [aLast, aFirst] = lastName.split(', ');
-  const [bLast, bFirst] = nextName.split(', ');
+// console.log(deList); // it runs only inside console of that link(line60)
+// // 7. sort Exercise
+// // Sort the people alphabetically by last name
+const alphabetically = people.sort((lastOne, nextOne) => {
+  const [aFirst, aLast] = lastOne.split(', ');
+  const [bFirst, bLast] = nextOne.split(', ');
   return aLast > bLast ? 1 : -1;
 });
 
 console.log(alphabetically);
+// // 8. Reduce Exercise
+// // Sum up the instances of each of these
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'pogo'];
+const totalInstances = data.reduce((ob, vehicle) => {
+if(!ob[vehicle]) {
+  ob[vehicle] = 0;
+}
+ob[vehicle]++;
+return ob
+}, {});
 
-// 8. Reduce Exercise
-// Sum up the instances of each of these
-const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+console.log(totalInstances);
