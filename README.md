@@ -16,3 +16,7 @@ Built a builtifull landing page with a customizable picture wich runs on css-var
 #4 Array Cardio Day-1
 
 Practiced all the filter/map/sort methods within the functions of JS
+
+#5 Flex Panels Images
+
+Manipulating the DOM elements to build flex panel images and toggle them to see the transitions
